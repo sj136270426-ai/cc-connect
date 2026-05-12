@@ -1253,5 +1253,4 @@ func preprocessDingTalkMarkdown(s string) string {
 		}
 	}
 	return sb.String()
-}
-fix(dingtalk): accept "picture" msgtype for image messages from enterprise bots                                                                                                             
+}                                                                                                            
