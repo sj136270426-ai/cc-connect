@@ -277,7 +277,7 @@ func (p *Platform) onMessage(data *chatbot.BotCallbackDataModel, richText *richT
 	}
 
 	// Handle image messages
-	if data.Msgtype == "image" || data.Msgtype == "picture" {  
+	if data.Msgtype == "image" || data.Msgtype == "picture" {
 		p.handleImageMessage(data, sessionKey)
 		return
 	}
@@ -1254,12 +1254,4 @@ func preprocessDingTalkMarkdown(s string) string {
 	}
 	return sb.String()
 }
- Commit message(第一行):                                                                                                                
-  fix(dingtalk): accept "picture" msgtype for image messages from enterprise bots
-                                                                                                                                         
-  Extended description(第二行下面那个大框):                                        
-  DingTalk enterprise bots send `msgtype: "picture"` (not `"image"`) when users upload photos.                                           
-  The current check at line 280 only matches `"image"`, so all image messages from enterprise bots are silently dropped (verified in
-  production logs: all messages logged with `has_images=false` even when user clearly sent a photo).                                
-                                                                                                    
-  This change accepts both `"image"` and `"picture"` — backward compatible, one-line fix.
+fix(dingtalk): accept "picture" msgtype for image messages from enterprise bots                                                                                                             
